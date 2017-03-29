@@ -30,7 +30,8 @@
       manage = "window";
       start = "
         ${pkgs.sxhkd}/bin/sxhkd -c /etc/nixos/.config/bspwm/sxhkdrc &
-        ${pkgs.bspwm}/bin/bspwm -c /etc/nixos/.config/bspwm/bspwmrc
+        ${pkgs.bspwm}/bin/bspwm -c /etc/nixos/.config/bspwm/bspwmrc &
+        ${pkgs.polybar}/bin/polybar -c /etc/nixos/.config/polybar/config example
       ";
       #start = "
       #  ${pkgs.sxhkd}/bin/sxhkd -c /etc/nixos/bspwm/sxhkdrc &

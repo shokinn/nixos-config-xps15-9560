@@ -6,6 +6,6 @@ let
   callPackage = pkgs.lib.callPackageWith (pkgs // self);
 
   self = {
-    keepass-keeagent = callPackage ./pkgs/keepass-plugins/keeagent { };
+    #<pkg-name> = callPackage ./pkgs/<pkg> { };
   };
 in self 
