@@ -45,8 +45,8 @@
     displayManager.slim = {
       enable = true;
       theme = pkgs.fetchurl {
-        url = "https://github.com/shokinn/MinimalistForTiling-Theme-For-SliM/archive/v1.3.tar.gz";
-        sha256 = "bb8254f2d49133db58a58f1b4c424ad49a90f58815b351764a866dee96ee1b2d";
+        url = "https://github.com/shokinn/MinimalistForTiling-Theme-For-SliM/archive/v1.5.tar.gz";
+        sha256 = "83a8335e78fb34e9d9018581030749e0c54b6af94a7e4ae175636aa0c247a41d";
       };
     };
  
