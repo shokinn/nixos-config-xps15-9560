@@ -56,7 +56,7 @@ $ cryptsetup luksAddKey /dev/nvme0n1p4 /dev/mapper/cryptkey
 
 # Now we open the swap and the root and make some filesystems.
 $ cryptsetup luksOpen --key-file=/dev/mapper/cryptkey /dev/nvme0n1p3 cryptswap
-$ mkswap /dev/mapper/cryptswap
+$ mkswap /dev/mapper/cryptswapex
 
 $ cryptsetup luksOpen --key-file=/dev/mapper/cryptkey /dev/nvme0n1p4 cryptroot
 $ mkfs.ext4 /dev/mapper/cryptroot
@@ -98,11 +98,11 @@ $ mkdir /mnt/boot
 $ mount /dev/disk/by-uuid/AAAA-AAAA /mnt/boot
 ```
 
-** Initial Configuration
+## Initial Configuration
 
 Run ~nixos-generate-config --root /mnt~
 
-*** `hardware-configuration.nix` changes
+### `hardware-configuration.nix` changes
 
 I had to edit the `hardware-configuration.nix` to setup the luks
 configuration. I did this with ~nix-shell -p emacs~, deleted the
@@ -129,7 +129,7 @@ configuration. I did this with ~nix-shell -p emacs~, deleted the
     };
   };
 }
-```nix
+```
 
 It should already be correct, but check that:
 
