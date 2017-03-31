@@ -21,7 +21,7 @@ I then deleted partitions 2 through 6, leaving only 500M EFI system
 partition, and created partitions so it looked like:
 
 | Partition | Size                  | Code   | Purpose                  |
-|-----------+-----------------------+--------+--------------------------|
+|-----------|-----------------------|--------|--------------------------|
 |         1 | 500 MiB               | =EF00= | EFI partition            |
 |         2 | 3 MiB                 | =8300= | cryptsetup luks key      |
 |         3 | 16 GiB                | =8300= | swap space (hibernation) |
@@ -32,7 +32,7 @@ the swap partition swap, systemd will try to automatically use it.
 
 Then:
 
-#+BEGIN_SRC text
+```text
 # Create an encrypted disk to hold our key, the key to this drive
 # is what you'll type in to unlock the rest of your drives... so,
 # remember it:
@@ -63,7 +63,7 @@ $ mkfs.ext4 /dev/mapper/cryptroot
 
 # and rebuild the boot partition:
 $ mkfs.vfat /dev/nvme0n1p1
-#+END_SRC
+```
 
 Then for a not fun bit, matching entries in =/dev/disk/by-uuid/= to
 the partitions we want to mount where. Running ~ls -l
@@ -71,7 +71,7 @@ the partitions we want to mount where. Running ~ls -l
 what =dm-1= and =dm2=, I ran ~ls -la /dev/mapper~:
 
 | name                                   | symlink to  | note                |
-|----------------------------------------+-------------+---------------------|
+|----------------------------------------|-------------|---------------------|
 | =1234-5678=                            | =sda2=      | installer           |
 | =1970-01-01-00-00-01-00=               | =sda1=      | installer           |
 | =AAAA-AAAA=                            | =nvme0n1p1= | /boot               |
@@ -85,7 +85,7 @@ Note I do have a =dm-0= for =cryptkey=, but no UUID but we won't need
 it. I substituted the actual hash with =A=s =B=s =C=s =D=s =E=s and
 =F=s in order to make the mount commands easier.
 
-#+BEGIN_SRC text
+```text
 # Enable swap using the decrypted cryptswap:
 $ swapon /dev/disk/by-uuid/EEEEEEEE-EEEE-EEEE-EEEE-EEEEEEEEEEEE
 
@@ -93,9 +93,10 @@ $ swapon /dev/disk/by-uuid/EEEEEEEE-EEEE-EEEE-EEEE-EEEEEEEEEEEE
 $ mount /dev/disk/by-uuid/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF /mnt
 
 # Setup and mount the boot partition
+a
 $ mkdir /mnt/boot
 $ mount /dev/disk/by-uuid/AAAA-AAAA /mnt/boot
-#+END_SRC
+```
 
 ** Initial Configuration
 
@@ -107,7 +108,7 @@ I had to edit the =hardware-configuration.nix= to setup the luks
 configuration. I did this with ~nix-shell -p emacs~, deleted the
 =boot.initrd.luks.devices= line, and added:
 
-#+BEGIN_SRC nix
+```nix
 {
   # !!! cryptkey must be done first, and the list seems to be
   # alphabetically sorted, so take care that cryptroot / cryptswap,
@@ -128,7 +129,7 @@ configuration. I did this with ~nix-shell -p emacs~, deleted the
     };
   };
 }
-#+END_SRC
+```nix
 
 It should already be correct, but check that:
 
