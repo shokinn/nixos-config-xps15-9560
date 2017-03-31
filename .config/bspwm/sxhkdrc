@@ -34,6 +34,10 @@ super + {_,shift + }{Left,Down,Up,Right}
 super + {s,f,t}
   bspc node -t {floating,fullscreen,tiled}
 
+# Move window with Mouse
+super + button{1-3}
+  bspc pointer -g {move,resize_side,resize_corner}
+
 # Close current window
 super + w
   bspc node -c
