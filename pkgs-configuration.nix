@@ -16,6 +16,7 @@ let custompkgs = import ./custom-pkgs/default.nix {}; in
     pkgs.bspwm # X11
     pkgs.conky # X11
     pkgs.dmenu # X11
+    pkgs.exfat
     pkgs.firefox
     pkgs.gptfdisk
     pkgs.git
