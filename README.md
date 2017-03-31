@@ -100,7 +100,7 @@ $ mount /dev/disk/by-uuid/AAAA-AAAA /mnt/boot
 
 ## Initial Configuration
 
-Run ~nixos-generate-config --root /mnt~
+Run `nixos-generate-config --root /mnt`
 
 ### `hardware-configuration.nix` changes
 
@@ -143,7 +143,7 @@ It should already be correct, but check that:
 Source: <https://gist.github.com/grahamc/fba67370053acc01ac216a6e4b73d308#disks>
 
 
-## wifi-network-configuration.nix
+### Create a 'wifi-network-configuration.nix' configuration (Optional, only if you want to use wifi)
 If you want to use Wifi you have to create an "wifi-network-configuration.nix" file. This is an example
 
 ```nix
