@@ -16,7 +16,6 @@
     xkbModel = "pc105";
     xkbVariant = "nodeadkeys";
     xkbOptions = "eurosing:e";
-    #synaptics.enable = true; # Enable trackpad
     libinput.enable = true; # libinput should perform better then synaptics
  
     modules = with pkgs; [
@@ -52,4 +51,7 @@
     # Depricated
     # displayManager.desktopManagerHandlesLidAndPower = false;
   };
+
+  # Enable 32Bit acceleration support
+  hardware.opengl.driSupport32Bit = true;
 }
