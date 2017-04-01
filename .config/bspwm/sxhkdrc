@@ -4,7 +4,7 @@
 
 # Kill bspwm & polybar
 super + alt + Escape
-  bspc quit 1 && killall -q polybar
+  bspc quit 1 && pkill -x polybar
 
 # Switch to desktop
 ctrl + alt + {Left,Right}
@@ -29,6 +29,10 @@ ctrl + alt + shift + Right
 # Select (Switch)/Move Window
 super + {_,shift + }{Left,Down,Up,Right}
   bspc node -{f,s} {west,south,north,east}
+
+# Preselect where to split
+super + alt + {space,Left,Down,Up,Right}
+  bspc node -p {cancel,west,south,north,east}
 
 # Set state of the current window (floating|fullscreen)
 super + {s,f,t}
