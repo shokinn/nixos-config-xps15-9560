@@ -9,7 +9,6 @@
     # Requires "nixpkgs.config.allowUnfree = true;"
     videoDrivers = [
       "nvidia"
-      "intel"
     ];
 
     #enable = true;
@@ -34,11 +33,6 @@
         ${pkgs.feh}/bin/feh --bg-center /etc/nixos/.config/bspwm/bg.png &
         ${pkgs.polybar}/bin/polybar -c /etc/nixos/.config/polybar/config example
       ";
-      #start = "
-      #  ${pkgs.sxhkd}/bin/sxhkd -c /etc/nixos/bspwm/sxhkdrc &
-      #  ${pkgs.bspwm}/bin/bspwm -c /etc/nixos/bspwm/bspwmrc &
-      #  /etc/nixos/bspwm/bspwm_panel/panel
-      #";
     } ];
  
     # Set custom loginscreen theme for slim
