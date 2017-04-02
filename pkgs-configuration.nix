@@ -18,8 +18,9 @@ let custompkgs = import ./custom-pkgs/default.nix {}; in
     pkgs.dmenu # X11
     pkgs.exfat
     pkgs.firefox
-    pkgs.gptfdisk
     pkgs.git
+    pkgs.glxinfo
+    pkgs.gptfdisk
     pkgs.htop
     pkgs.hugo
     pkgs.keepass
@@ -38,7 +39,7 @@ let custompkgs = import ./custom-pkgs/default.nix {}; in
     pkgs.vim
     pkgs.wget
     pkgs.xdo # X11
-    pkgs.xdotool # Für Keepass
+    pkgs.xdotool # For KeePass (strg+v typing)
     pkgs.xfontsel
     pkgs.xlsfonts
     pkgs.xorg.mkfontdir
