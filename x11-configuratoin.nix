@@ -8,7 +8,7 @@
     # Set video drivers to commercial (unfree) nvidia drivers
     # Requires "nixpkgs.config.allowUnfree = true;"
     videoDrivers = [
-      "nvidia"
+      "bumblebee"
     ];
 
     #enable = true;
