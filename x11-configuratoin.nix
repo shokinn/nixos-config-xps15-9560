@@ -8,7 +8,8 @@
     # Set video drivers to commercial (unfree) nvidia drivers
     # Requires "nixpkgs.config.allowUnfree = true;"
     videoDrivers = [
-      "bumblebee"
+      "nvidia"
+      "intel"
     ];
 
     #enable = true;
@@ -33,7 +34,7 @@
         ${pkgs.polybar}/bin/polybar -c /etc/nixos/.config/polybar/config example
       ";
     } ];
- 
+
     # Set custom loginscreen theme for slim
     displayManager.slim = {
       enable = true;
