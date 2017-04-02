@@ -28,6 +28,7 @@ let custompkgs = import ./custom-pkgs/default.nix {}; in
     pkgs.mc
     pkgs.mkpasswd
     pkgs.polybar # X11
+    pkgs.powertop
     pkgs.rxvt_unicode
     pkgs.screen
     pkgs.softether
