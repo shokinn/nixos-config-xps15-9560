@@ -18,6 +18,7 @@ let custompkgs = import ./custom-pkgs/default.nix {}; in
     pkgs.dmenu # X11
     pkgs.exfat
     pkgs.firefox
+    pkgs.franz
     pkgs.git
     pkgs.glxinfo
     pkgs.gptfdisk
